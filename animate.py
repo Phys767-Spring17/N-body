@@ -2,7 +2,6 @@
 
 #import matplotlib		#These two lines are only needed
 #matplotlib.use('Agg')		#if you are running this via ssh
-import sys, getopt
 import numpy as np
 import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d.axes3d as p3
@@ -12,8 +11,8 @@ fig, ax = plt.subplots()
 x, y, z = np.loadtxt("new1.dat", delimiter='  ', unpack=True)
 
 line, = ax.plot(x, y, 'yo')
-ax.set_xlim(-2000,2000)
-ax.set_ylim(-2000,2000)
+ax.set_xlim(-1004,-994)
+ax.set_ylim(-1004,-994)
 #ax.set_facecolor('black')
 
 
@@ -36,5 +35,5 @@ ani = animation.FuncAnimation(fig, animate, np.arange(1, 3000), init_func=init,
 
 
 
-#ani.save('gravAni2.mp4')
-plt.show()
+ani.save('gravsym1.mp4')
+#plt.show()
