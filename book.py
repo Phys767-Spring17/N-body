@@ -1,8 +1,10 @@
 import numpy as np
 #""""""""""""""""""""""""""""""""""""""""
-#"""Drops the ith element of an array."""
+#
 #""""""""""""""""""""""""""""""""""""""""
 def remove_i(x, i):
+	"""Drops the ith element of an array."""
+
 	shape = (x.shape[0]-1,) + x.shape[1:]
 	y = np.empty(shape, dtype=float)
 	y[:i] = x[:i]
