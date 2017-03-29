@@ -4,3 +4,6 @@ python:
 
 script:
 - py.test
+
+notifications:
+email:false
