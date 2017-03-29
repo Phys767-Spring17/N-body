@@ -21,7 +21,7 @@
 ########################################################################################################
 
 
-import book.book	#functions taken from book packaged as a module.
+import book	#functions taken from book packaged as a module.
 import sys, getopt	#modules used to fancify user interface.
 
 #####################################################################						    
@@ -102,19 +102,28 @@ for i in range(5):
 #file name.							    #
 #####################################################################
 def simulate(N, D, S, G, dt):
-        x0, v0, m = book.initial_cond(N, D)
-        for s in range(S):
-                with open(filename + str(s+1) +".dat", "w") as myfile:
-                        x1, v1 = book.timestep(x0, v0, G, m, dt)
-                        x0, v0 = x1, v1
-                        for n in range(N):
-				 myfile.write(str(x0[n,0]) + "  "
-					 + str(x0[n,1]) + "  " + str(x0[n,2]) + "\n")
-                        myfile.flush()
+    x0, v0, m = book.initial_cond(N, D)
+    for s in range(S):
+        with open(filename + str(s+1) +".dat", "w") as myfile:
+            x1, v1 = book.timestep(x0, v0, G, m, dt)
+            x0, v0 = x1, v1
+            for n in range(N):
+	        myfile.write(str(x0[n,0]) + "  "
+			 + str(x0[n,1]) + "  " + str(x0[n,2]) + "\n")
+                myfile.flush()
+    return '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
+
+#def simulate(N, D, S, G, dt):
+#        x0, v0, m = book.initial_cond(N, D)
+#        for s in range(S):
+#                with open(filename + str(s+1) +".dat", "w") as myfile:
+#                        x1, v1 = book.timestep(x0, v0, G, m, dt)
+#                        x0, v0 = x1, v1
+#                        for n in range(N):
+#				 myfile.write(str(x0[n,0]) + "  "
+#					 + str(x0[n,1]) + "  " + str(x0[n,2]) + "\n")
+#                        myfile.flush()
+#    return '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
 
 
-
-
-#simulate(1000, 3, 1, 1.0, 1.0e-3)
-simulate(int(N), int(D), int(S), float(G), float(dt))
-print '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
+print simulate(int(N), int(D), int(S), float(G), float(dt))
