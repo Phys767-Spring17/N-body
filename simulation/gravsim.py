@@ -61,7 +61,7 @@ def input_int_check(N, D, S):
         if test.isdigit():
             continue
         else:
-            print '\nN, D, and S must be integers\n'
+            print('\nN, D, and S must be integers\n')
             sys.exit(2)
 
 
@@ -88,9 +88,10 @@ def simulate(N, D, S, G, dt):
     return '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
 
 
-filename, N, D, S, G, dt = input_check(sys.argv)
+filename, N, D, S, G, dt = input_check(7)
 input_int_check(N, D, S)
 
+print(filename, N, D, S, G, dt)
 
 """if len(sys.argv) == 7:		#conditional check for requisite number
 	filename = sys.argv[1]  #of arguments at run time
@@ -112,7 +113,7 @@ for i in range(5):
 		print '\nN, D, and S must be integers\n'
 		sys.exit(2)
 """
-print simulate(int(N), int(D), int(S), float(G), float(dt))
+print(simulate(int(N), int(D), int(S), float(G), float(dt)))
 
 #def simulate(N, D, S, G, dt):
 #        x0, v0, m = book.initial_cond(N, D)
