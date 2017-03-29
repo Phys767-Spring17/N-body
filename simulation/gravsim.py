@@ -31,7 +31,16 @@ import sys, getopt	#modules used to fancify user interface.
 
 
 def input_check(n):
-    """
+    """run time argument handeling of user defined values.
+    A total of 7 arguments must be included at run time
+    as defined by the error message listed below.
+
+    filename: The output filename.
+    N: The number of particles in the simulation.
+    D: The number of dimensions.
+    S: The number of time steps to be used for the simulation.
+    G: Gravitational constant.
+    dt: the time step interval.
     """
     if len(sys.argv) == 7:
         filename = sys.argv[1]  #of arguments at run time
@@ -48,13 +57,17 @@ def input_check(n):
     
 
 def input_int_check(N, D, S):
-    """
+    """conditional check for integer values of N, D, and S.
+    
+    N: The number of particles in the simulation.
+    D: The number of dimensions.
+    S: The number of time steps to be used for the simulation.  
     """
     for i in range(5):
         i = 2
         test = sys.argv[i]
-        if test.isdigit():	#conditional check for integer values of
-            continue	#N, D, and S
+        if test.isdigit():
+            continue
         else:
             print '\nN, D, and S must be integers\n'
             sys.exit(2)
