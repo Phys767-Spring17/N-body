@@ -22,7 +22,7 @@
 
 
 import book	#functions taken from book packaged as a module.
-import sys	#modules used to fancify user interface.
+import sys, os	#modules used to fancify user interface.
 
 
 def input_check(n):
@@ -44,7 +44,8 @@ def input_check(n):
     else:
         print('\nThe proper use of gravsim.py is as follows.')
         print('\npython gravsim.py outputfile N D S G dt\n')
-        sys.exit(2)
+#        sys.exit(2)
+        end
     
 
 def input_int_check(N, D, S):
@@ -62,8 +63,8 @@ def input_int_check(N, D, S):
             continue
         else:
             print('\nN, D, and S must be integers\n')
-            sys.exit(2)
-
+#            sys.exit(2)
+            end
 
 def simulate(N, D, S, G, dt):
     """Simulate function from Computation book modified to take in
