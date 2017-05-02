@@ -44,7 +44,7 @@ def input_check(n):
     else:
         print('\nThe proper use of gravsim.py is as follows.')
         print('\npython gravsim.py outputfile N D S G dt\n')
-#        sys.exit(2)
+        os._exit(1)
         end
     
 
@@ -63,7 +63,7 @@ def input_int_check(N, D, S):
             continue
         else:
             print('\nN, D, and S must be integers\n')
-#            sys.exit(2)
+            os._exit(1)
             end
 
 def simulate(N, D, S, G, dt):
