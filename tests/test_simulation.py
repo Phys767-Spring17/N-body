@@ -1,12 +1,12 @@
 import pytest
 
 
-def test_ic_7():
-    from simulation.gravsim import input_check as ic
-    sys.argv = ["gravsim.py", "test", 1, 1, 1, 1, 1]
-    filename, N, D, S, G, dt = ic(7)
+#def test_ic_7():
+#    from simulation.gravsim import input_check as ic
+#    sys.argv = ["gravsim.py", "test", 1, 1, 1, 1, 1]
+#    filename, N, D, S, G, dt = ic(7)
 #    assert ic(7) == 'test', 1, 1, 1, 1, 1
-    assert filename == "test"
+#    assert filename == "test"
 
 #def test_sim():
 #    from simulation.gravsim import simulate as sim
