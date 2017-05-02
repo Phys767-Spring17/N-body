@@ -9,7 +9,6 @@ class cluster(object):
     """
     
     roar = "I am a cluster!\n"
-    
     def __init__(self, partnum, clusnum, D, M):
         """
         """
@@ -17,32 +16,18 @@ class cluster(object):
         self.particle_dimensions = D
         self.cluster_count = clusnum
         self.cluster_dimensions = D
-        self.particle_positions = book.initial_cond(partnum, D)
+        self.particle_positions, self.particle_velocities, self.particle_masses = book.initial_cond(partnum, D)
         self.cluster_position = np.random.rand(clusnum, D)*M
         
         
     def hear_me(self):
         myroar = self.roar + (
-            " My particle count is:          " + str(self.particle_count) + "\n" +
-            " My particle dimensions are:    " + str(self.particle_dimensions) + "\n" +
-            " My cluster count is:           " + str(self.cluster_count) + "\n" +
-            " My first particle position is: " + str(self.particle_positions[0]) + "\n" +
-            "                                " + str(self.particle_positions[1]) + "\n" +
-            "                                " + str(self.particle_positions[2]))
+            "\n"
+            "  My particle count is:          " + str(self.particle_count) + "\n" +
+            "  My particle dimensions are:    " + str(self.particle_dimensions) + "\n" +
+            "  My cluster count is:           " + str(self.cluster_count) + "\n" +
+            "  My first particle position is: x: " + str(self.particle_positions[0,0]) + "\n" +
+            "                                 y: " + str(self.particle_positions[0,1]) + "\n" +
+            "                                 z: " + str(self.particle_positions[0,2]))
+ 
         print(myroar)
-
-        
-#    def cluster(self, N, D):
-#        """
-#        """
-#        self.particle_count = N
-#        self.particle_dimensions = D
-#        self.particle_positions = book.initial_cond(N, D)
-#     
-            
-#    def cluster_position(self, N, D, M):
-#        """
-#        """
-#        self.cluster_count = N
-#        self.cluster_dimensions = D
-#        self.cluster_position = np.random.rand(N, D)*M
