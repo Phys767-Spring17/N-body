@@ -3,14 +3,14 @@ import book as book
 
 
 class cluster(object):
-    """A cluster is comprised of N unity masses
+    """A cluster object is comprised of N unity masses
        starting at a random position in D-dimensional spce.
        
     """
     
     roar = "I am a cluster!\n"
     def __init__(self, partnum, clusnum, D, M):
-        """initilizes the object with the follow:
+        """initilizes the cluster object with the following parameters:
         
         param particle_cout: the number of particles in the simulation.
         param particle_dimensions: the number of dimensions.
@@ -30,6 +30,9 @@ class cluster(object):
         
         
     def hear_me(self):
+        """The hear me method is mostly for testing to ensure cluster properties exist for a cluster object.
+        
+        """
         myroar = self.roar + (
             "\n"
             "  My particle count is:          " + str(self.particle_count) + "\n" +
@@ -43,6 +46,11 @@ class cluster(object):
         print(myroar)
 
     def cluster(self):
+        """the cluster method returns the initial positions velocities and masses in the 
+           same way the initial conditions function from the book module does. This allows
+           for a seemless way to integrate the cluster object into existing simulations.
+           
+        """        
         x0 = self.particle_positions + self.cluster_position
         v0 = self.particle_velocities
         m = self.particle_masses
