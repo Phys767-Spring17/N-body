@@ -10,7 +10,8 @@ import pytest
 
 #def test_sim():
 #    from simulation.gravsim import simulate as sim
-#    assert sim(test, 1, 1, 1, 1, 1) == '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
+#    test = sim(test, 1, 1, 1, 1, 1)
+#    assert test = '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
 
 #def test_ic_7(self):
 #    from simulation.gravsim import input_check as ic
