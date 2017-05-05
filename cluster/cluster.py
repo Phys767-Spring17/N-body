@@ -25,9 +25,19 @@ class cluster(object):
         self.particle_dimensions = D
         self.cluster_count = clusnum
         self.cluster_dimensions = D
-        self.particle_positions, self.particle_velocities, self.particle_masses = book.initial_cond(partnum, D)
-        self.cluster_position = np.random.rand(1, D)*M
-        
+        self.particle_positions = []
+        self.particle_velocities = []
+        self.particle_masses = []
+        for i in range(clusnum):
+            x_i, v_i, m_i = book.initial_cond(partnum, D)
+#            for j in range(3):
+#                for k in range(3):
+#                    x_i[i,j] = x_i[i,j] + np.random.rand()*M
+            self.cluster_position = np.random.rand(1,3)*M
+            self.particle_positions.append(x_i + self.cluster_position)
+            self.particle_velocities.append( v_i )
+            self.particle_masses.append( m_i )
+            
         
     def hear_me(self):
         """The hear me method is mostly for testing to ensure cluster properties exist for a cluster object.
@@ -50,8 +60,8 @@ class cluster(object):
            same way the initial conditions function from the book module does. This allows
            for a seemless way to integrate the cluster object into existing simulations.
            
-        """        
-        x0 = self.particle_positions + self.cluster_position
+        """
+        x0 = self.particle_positions
         v0 = self.particle_velocities
         m = self.particle_masses
         return x0, v0, m
