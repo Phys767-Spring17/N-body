@@ -21,8 +21,9 @@
 ########################################################################################################
 
 
-import book		#functions taken from book packaged as a module.
-import sys, os		#modules used to fancify user interface.
+import book  # functions taken from book packaged as a module.
+import sys
+import os		# modules used to fancify user interface.
 
 
 def input_check(n):
@@ -88,11 +89,11 @@ def simulate(N, D, S, G, dt):
     """
     x0, v0, m = book.initial_cond(N, D)
     for s in range(S):
-        with open(filename + str(s+1) +".dat", "w") as myfile:
+        with open(filename + str(s+1) + ".dat", "w") as myfile:
             x1, v1 = book.timestep(x0, v0, G, m, dt)
             x0, v0 = x1, v1
             for n in range(N):
-                myfile.write(str(x0[n,0]) + "  " + str(x0[n,1]) + "  " + str(x0[n,2]) + "\n")
+                myfile.write(str(x0[n, 0]) + "  " + str(x0[n, 1]) + "  " + str(x0[n, 2]) + "\n")
             myfile.flush()
     return '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
 
