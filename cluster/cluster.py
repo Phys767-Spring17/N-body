@@ -4,7 +4,7 @@ import book as book
 
 class cluster(object):
     """A cluster object is comprised of N unity masses
-       starting at a random position in D-dimensional spce.
+       starting at a random position in D-dimensional space.
        
     """
     
@@ -30,9 +30,6 @@ class cluster(object):
         self.particle_masses = []
         for i in range(clusnum):
             x_i, v_i, m_i = book.initial_cond(partnum, D)
-#            for j in range(3):
-#                for k in range(3):
-#                    x_i[i,j] = x_i[i,j] + np.random.rand()*M
             self.cluster_position = np.random.rand(1,3)*M
             self.particle_positions.append(x_i + self.cluster_position)
             self.particle_velocities.append( v_i )
