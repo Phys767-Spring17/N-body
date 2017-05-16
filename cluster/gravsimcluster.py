@@ -9,16 +9,17 @@ def simulate(N, M, D, S, G, dt):
     file name.
 
     :param N: The number of particles.
+    :param M: The number of clusters.
     :param D: The number of dimensions.
     :param S: The number of time steps.
     :param G: Gravitational constant.
     :param dt: The time step.
     :return: Simulation complete message.
     """
-    x = cl.cluster(N, M, D, 500) #partnum clustnum D M: create cluster object
-    x0, v0, m = x.cluster() #   x0, v0, m = book.initial_cond(N, D) <-- old way to initilize
+    x = cl.cluster(N, M, D, 500)  # create cluster object. 500 defines the maximum position coordinate of a cluster.
+    x0, v0, m = x.cluster()  # x0, v0, m = book.initial_cond(N, D) <-- old way to initialize
     for s in range(S):
-        with open("clusterdata" + str(s+1) +".dat", "w") as myfile:
+        with open("clusterdata" + str(s+1) + ".dat", "w") as myfile:
             for i in range(M):
                 x1, v1 = book.timestep(x0[i], v0[i], G, m[i], dt)
                 x0[i], v0[i] = x1, v1
@@ -27,7 +28,7 @@ def simulate(N, M, D, S, G, dt):
     return '\nSimulation complete. Your data has been saved as clusterdata*.dat\n'
 
 
-np.set_printoptions(threshold='nan') # this is needed to print the entire x0 array to file.
+np.set_printoptions(threshold='nan')  # This is needed to print the entire x0 array to file.
 
 N = 1000
 M = 10
@@ -36,4 +37,4 @@ S = 1000
 G = 1
 dt = 1e-3
 
-print(simulate(N, M, D, S, G, dt)) # Run the simulation!
+print(simulate(N, M, D, S, G, dt))  # Run the simulation!
