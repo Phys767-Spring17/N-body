@@ -1,7 +1,6 @@
 #http://stackoverflow.com/questions/2369492/generate-a-heatmap-in-matplotlib-using-a-scatter-data-set
 
 import numpy as np
-import numpy.random
 import matplotlib.pyplot as plt
 import sphviewer as sph
 
@@ -12,8 +11,8 @@ def myplot(x, y, nb=32, xsize=500, ysize=500):
        with a measure of its extent. This output is then inputed to
        Axes.imshow.
        
-       param: x,y   two colums of data such as particle positions
-       param: nb    smoothing size.
+       :param: x,y   two columns of data such as particle positions
+       :param: nb    smoothing size.
     """
     xmin = np.min(x)
     xmax = np.max(x)
@@ -24,8 +23,8 @@ def myplot(x, y, nb=32, xsize=500, ysize=500):
     y0 = (ymin+ymax)/2.
 
     pos = np.zeros([3, len(x)])
-    pos[0,:] = x
-    pos[1,:] = y
+    pos[0, :] = x
+    pos[1, :] = y
     w = np.ones(len(x))
 
     P = sph.Particles(pos, w, nb=nb)
@@ -50,12 +49,12 @@ x, y, z = np.loadtxt('proctemp1000.data', delimiter=' ', unpack=True)
 ax1.set_xlim(-100,600)
 ax1.set_ylim(-100,600)
 
-heatmap_1024, extent_1024 = myplot(x,y, nb=1024)
+heatmap_1024, extent_1024 = myplot(x, y, nb=1024)
 
-cax = ax1.imshow(heatmap_1024, extent=extent_1024, origin='lower', aspect='auto',cmap='gist_heat')
+cax = ax1.imshow(heatmap_1024, extent=extent_1024, origin='lower', aspect='auto', cmap='gist_heat')
 ax1.set_title("Smoothing over 1024 neighbors")
-plt.colorbar(cax,ticks=[0.00,0.25,0.50,0.75,1.00])
+plt.colorbar(cax, ticks=[0.00, 0.25, 0.50, 0.75, 1.00])
 
 plt.show()
 
-plt.savefig('heat_1000_100.png',dpi=300)
+plt.savefig('heat_1000_100.png', dpi=300)
