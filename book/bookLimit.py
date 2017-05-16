@@ -14,7 +14,7 @@ def remove_i(x, i):
 
 def a(i, x, G, m):
     """The acceleration of the ith mass.
-
+       This function also limits the value of diff to greater than 1.
     """
     x_i = x[i]
     x_j = remove_i(x, i)
