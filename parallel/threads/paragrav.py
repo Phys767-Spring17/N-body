@@ -1,14 +1,11 @@
 #!/usr/bin/python   ##Shabang!
 
-#import matplotlib		#These two lines are only needed
-#matplotlib.use('Agg')		#if you are running this via ssh
+# import matplotlib		# These two lines are only needed
+# matplotlib.use('Agg')		# if you are running this via ssh
 
-import paraBook as book#functions taken from book packaged as a module.
-import sys, getopt	#modules used to fancify user interface.
-import numpy as np
-import matplotlib.pyplot as plt
-import mpl_toolkits.mplot3d.axes3d as p3
-import matplotlib.animation as animation
+import paraBook as book  # functions taken from book packaged as a module.
+import sys  # modules used to fancify user interface.
+import os  # modules used to fancify user interface.
 
 
 def input_check(n):
@@ -21,7 +18,7 @@ def input_check(n):
     """
     if len(sys.argv) == n:
         filename = sys.argv[1]
-	P = sys.argv[2]
+        P = sys.argv[2]
         N = sys.argv[2]
         D = sys.argv[3]
         S = sys.argv[4]
@@ -77,11 +74,11 @@ def simulate(P, N, D, S, G, dt):
     x0, v0, m = book.initial_cond(N, D)
     pool = book.Pool(P)
     for s in range(S):
-        with open(filename + str(s+1) +".dat", "w") as myfile:
+        with open(filename + str(s+1) + ".dat", "w") as myfile:
             x1, v1 = book.timestep(x0, v0, G, m, dt, pool)
             x0, v0 = x1, v1
             for n in range(N):
-                myfile.write(str(x0[n,0]) + "  " + str(x0[n,1]) + "  " + str(x0[n,2]) + "\n")
+                myfile.write(str(x0[n, 0]) + "  " + str(x0[n,1]) + "  " + str(x0[n, 2]) + "\n")
             myfile.flush()
     return '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
 
@@ -89,4 +86,4 @@ def simulate(P, N, D, S, G, dt):
 filename, P, N, D, S, G, dt = input_check(8)
 input_int_check(N, D, S)
 
-print(simulate(int(P) ,int(N), int(D), int(S), float(G), float(dt))) #get the party started!
+print(simulate(int(P) ,int(N), int(D), int(S), float(G), float(dt)))  # get the party started!
