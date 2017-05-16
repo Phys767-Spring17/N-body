@@ -2,7 +2,7 @@ import numpy as np
 import cluster as cl
 import book
 
-np.set_printoptions(threshold='nan')
+
 def simulate(N, M, D, S, G, dt):
     """Simulate function from Computation book modified to take in
     user specified variables N, D, S, G, dt and output a user specified
@@ -22,11 +22,12 @@ def simulate(N, M, D, S, G, dt):
             for i in range(M):
                 x1, v1 = book.timestep(x0[i], v0[i], G, m[i], dt)
                 x0[i], v0[i] = x1, v1
-#                print i, np.shape(x0)
                 myfile.write(str(x0[i]) + "\n")
             myfile.flush()
     return '\nSimulation complete. Your data has been saved as clusterdata*.dat\n'
 
+
+np.set_printoptions(threshold='nan') # this is needed to print the entire x0 array to file.
 
 N = 1000
 M = 10
