@@ -15,11 +15,11 @@ class cluster(object):
         param particle_cout: the number of particles in the simulation.
         param particle_dimensions: the number of dimensions.
         param cluster_count: the number of particle clusters.
-        param cluster_dimensions: the number of dimensions
-        param particle_positions: the x,y,z position of the particles
-        param particle_velocities:
-        param particle_masses:
-        param cluster_position:
+        param cluster_dimensions: the number of dimensions.
+        param particle_positions: the x,y,z position of the particles.
+        param particle_velocities: the particle velocities. 
+        param particle_masses: the particle masses.
+        param cluster_position: the cluster positions.
         """
         self.particle_count = partnum
         self.particle_dimensions = D
