@@ -11,7 +11,7 @@ def remove_i(x, i):
     y[i:] = x[i+1:]
     return y
 
-
+    
 def a(i, x, G, m):
     """The acceleration of the ith mass.
     
@@ -21,7 +21,7 @@ def a(i, x, G, m):
     m_j = remove_i(m, i)
     diff = x_j - x_i
     mag3 = np.sum(diff**2, axis=1)**1.5
-    result = G * np.sum(diff * (m_j / mag3)[:,np.newaxis], axis=0)
+    result = G * np.sum(diff * (m_j / mag3)[:, np.newaxis], axis=0)
     return result
 
 
@@ -38,7 +38,7 @@ def timestep(x0, v0, G, m, dt):
         v1[i] = a_i0 * dt + v0[i]
         x1[i] = a_i0 * dt**2 + v0[i] * dt + x0[i]
     return x1, v1
-		
+
 
 def initial_cond(N, D):
     """Generates initial conditions for N unity masses at rest
