@@ -24,7 +24,7 @@ def a(i, x, G, m):
         diff = 1
     else:
         mag3 = np.sum(diff**2, axis=1)**1.5
-    result = G * np.sum(diff * (m_j / mag3)[:,np.newaxis], axis=0)
+    result = G * np.sum(diff * (m_j / mag3)[:, np.newaxis], axis=0)
     return result
 
 
@@ -41,7 +41,7 @@ def timestep(x0, v0, G, m, dt):
         v1[i] = a_i0 * dt + v0[i]
         x1[i] = a_i0 * dt**2 + v0[i] * dt + x0[i]
     return x1, v1
-		
+
 
 def initial_cond(N, D):
     """Generates initial conditions for N unity masses at rest
@@ -51,7 +51,7 @@ def initial_cond(N, D):
     x0 = np.random.rand(N, D)-250
     for i in range(N/2):
         for j in range(D):
-            x0[i,j] = x0[i,j]+500
+            x0[i, j] = x0[i, j]+500
     v0 = np.zeros((N, D), dtype=float)
     m = np.ones(N, dtype=float)
     return x0, v0, m
