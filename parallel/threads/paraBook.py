@@ -1,6 +1,7 @@
 from threading import Thread
 import numpy as np
 
+
 def remove_i(x, i):
     """Drops the ith element of an array.
     
@@ -21,7 +22,7 @@ def a(i, x, G, m):
     m_j = remove_i(m, i)
     diff = x_j - x_i
     mag3 = np.sum(diff**2, axis=1)**1.5
-    result = G * np.sum(diff * (m_j / mag3)[:,np.newaxis], axis=0)
+    result = G * np.sum(diff * (m_j / mag3)[:, np.newaxis], axis=0)
     return result
 
 
@@ -48,7 +49,7 @@ def initial_cond(N, D):
     x0 = np.random.rand(N, D)-250
     for i in range(N/2):
         for j in range(D):
-            x0[i,j] = x0[i,j]+500
+            x0[i, j] = x0[i, j]+500
     v0 = np.zeros((N, D), dtype=float)
     m = np.ones(N, dtype=float)
     return x0, v0, m
@@ -69,7 +70,7 @@ class Worker(Thread):
     def run(self):
         while self.running:
             if len(self.inputs) == 0:
-	        continue
+                continue
             i, x0, v0, G, m, dt = self.inputs.pop(0)
             a_i0 = a(i, x0, G, m)
             v_i1 = a_i0 * dt + v0[i]
@@ -77,23 +78,17 @@ class Worker(Thread):
             result = (i, x_i1, v_i1)
             self.results.append(result)
 
+
 class Pool(object):
     """A collection of P worker threads that distributes tasks
        evenly across them.
 
     """
     def __init__(self, size):
-    """
-    
-    """
         self.size = size
         self.workers = [Worker() for p in range(size)]
 
-
     def do(self, tasks):
-    """
-    
-    """
         for p in range(self.size):
             self.workers[p].inputs += tasks[p::self.size]
         while any([len(worker.inputs) != 0 for worker in self.workers]):
@@ -104,10 +99,6 @@ class Pool(object):
             del worker.results[:]
         return results
 
-
     def __del__(self):
-    """
-    
-    """
         for worker in self.workers:
             worker.running = False
