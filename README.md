@@ -25,3 +25,15 @@ to be using for the visualization section.
 Visualization was done using basic python plotting and animation as well as density plots found on
 stackoverflow.com. 
 
+
+N-body
+├── book
+├── cluster
+├── parallel
+│   └── threads
+├── simulation
+├── tests
+└── visualization
+    ├── density_plots
+        └── output_examples
+        
