@@ -4,10 +4,11 @@ This code is a numerical simulation based on Newtons laws of gravity. Three vers
 numerical simulation were created. 
 
 The first version, found in the simulation directory is named gravsim.py. The program defines and
-calls a function called simulate. The simulate function was taken from the book and modified to
-save the calculated particle positions to a file for each time step taken. gravsim.py calls the
-book.py module (found in the book directory and contains all the functions defined in the book) and
-generates a single cluster of N unit mass particles randomly placed useing np.random.
+calls a function named simulate. The simulate function from the book was modified to save the 
+calculated particle positions to a file for each time step taken. The remaining functions taken
+from the book are stored in the book directory in a file named book.py. gravsim.py calls
+book.py as a module and generates a single cluster of N unit mass particles randomly placed 
+using np.random.
 
 The second version, found in the parallel directory was also taken from the book. This code was
 modified in the same way as the first version to save output. The program is different from the first
@@ -18,7 +19,9 @@ of threads increases.
 The third version, found in the cluster directory uses the first version of the code along with
 a class named cluster. The cluster class allows the user to generate multiple randomly placed
 clusters of particles each defined in the same manner as the single cluster defined in first version.
+The main purpose for creating this version was to produce a visually interesting set of data
+to be using for the visualization section.
 
-Visualization was done using basic python plotting and animation methods and the creation of density
-plots. The code for the density plots was found on stackoverflow.com. 
+Visualization was done using basic python plotting and animation as well as density plots found on
+stackoverflow.com. 
 
