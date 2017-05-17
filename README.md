@@ -26,14 +26,15 @@ Visualization was done using basic python plotting and animation as well as dens
 stackoverflow.com. 
 
 
-N-body
-├── book
-├── cluster
-├── parallel
-│   └── threads
-├── simulation
-├── tests
-└── visualization
-    ├── density_plots
-        └── output_examples
+N-body  
+├── book  
+├── cluster  
+├── parallel  
+│   └── threads  
+├── simulation  
+├── tests  
+└── visualization  
+    ├── density_plots  
+        └── output_examples  
+        
         
