@@ -1,4 +1,6 @@
 #http://stackoverflow.com/questions/2369492/generate-a-heatmap-in-matplotlib-using-a-scatter-data-set
+import matplotlib		#These two lines are only needed
+matplotlib.use('Agg')		#if you are running this via ssh
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -40,7 +42,6 @@ def myplot(x, y, nb=32, xsize=500, ysize=500):
     print extent, x0, y0
     return img, extent
 
-
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 
@@ -49,12 +50,21 @@ x, y, z = np.loadtxt('proctemp1000.data', delimiter=' ', unpack=True)
 ax1.set_xlim(-100,600)
 ax1.set_ylim(-100,600)
 
-heatmap_1024, extent_1024 = myplot(x, y, nb=1024)
+nb_val=2048
 
-cax = ax1.imshow(heatmap_1024, extent=extent_1024, origin='lower', aspect='auto', cmap='gist_heat')
-ax1.set_title("Smoothing over 1024 neighbors")
-plt.colorbar(cax, ticks=[0.00, 0.25, 0.50, 0.75, 1.00])
+densitymap, extent = myplot(x, y, nb=nb_val)
+
+cax = ax1.imshow(densitymap, extent=extent, origin='lower', aspect='auto', cmap='viridis')
+ax1.set_title("100 Clusters of 1000 particles \n Smoothing over "+ str(nb_val) +" neighbors", fontsize=12)
+
+
+cbar = plt.colorbar(cax)
+v = np.linspace(0.25, 1.0, 5, endpoint=True)
+cbar.ax.set_yticklabels(v, fontsize=10)
+cbar.set_label('density', labelpad=5, y=0.5)
+
+plt.xlabel("x position", fontsize=12)
+plt.ylabel("y position", fontsize=12)
 
 plt.show()
-
 plt.savefig('heat_1000_100.png', dpi=300)
