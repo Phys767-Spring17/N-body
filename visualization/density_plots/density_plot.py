@@ -48,23 +48,22 @@ ax1 = fig.add_subplot(111)
 x, y, z = np.loadtxt('proctemp1000.data', delimiter=' ', unpack=True)
 
 ax1.set_xlim(-100,600)
-ax1.set_ylim(-100,600)
+x1.set_ylim(-100,600)
+ax1.tick_params(axis='x', labelsize=6)
+ax1.tick_params(axis='y', labelsize=6)
 
 nb_val=2048
 
 densitymap, extent = myplot(x, y, nb=nb_val)
 
-cax = ax1.imshow(densitymap, extent=extent, origin='lower', aspect='auto', cmap='viridis')
-ax1.set_title("100 Clusters of 1000 particles \n Smoothing over "+ str(nb_val) +" neighbors", fontsize=12)
-
+cax = ax1.imshow(densitymap, extent=extent, origin='lower', aspect='auto', cmap='gist_earth')
+ax1.set_title("100 Clusters of 1000 particles \n Smoothing over "+ str(nb_val) +" neighbors", fontsize=10)
 
 cbar = plt.colorbar(cax)
-v = np.linspace(0.25, 1.0, 5, endpoint=True)
-cbar.ax.set_yticklabels(v, fontsize=10)
-cbar.set_label('density', labelpad=5, y=0.5)
+cbar.set_label('density of particles', labelpad=5, y=0.5, fontsize=8)
+cbar.ax.tick_params(labelsize=6)
 
-plt.xlabel("x position", fontsize=12)
-plt.ylabel("y position", fontsize=12)
+plt.xlabel("x position", fontsize=8)
+plt.ylabel("y position", fontsize=8)
 
-plt.show()
-plt.savefig('heat_1000_100.png', dpi=300)
+plt.savefig('density_' + nb_val + '_1000_100.png', dpi=300)
