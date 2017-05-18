@@ -35,27 +35,14 @@ def input_check(n):
     :return: params for simulations.
     """
     if len(sys.argv) == n:
-        filename = sys.argv[1]
-        N = sys.argv[2]
-        D = sys.argv[3]
-        S = sys.argv[4]
-        G = sys.argv[5]
-        dt = sys.argv[6]
-        return filename, N, D, S, G, dt
-    else:
-        print('\n    The proper use of gravsim.py is as follows.')
-        print('\n        python gravsim.py outputfile N D S G dt\n')
-        print('    Simulate function from Computation book modified to take in\n'
-               "    user specified variables N, D, S, G, dt and output a user specified\n"
-                "    file name.\n"
+     filename = sys.argv[1]
+     N = sys.argv[2]
+     D = sys.argv[3]
+     S = sys.argv[4]
+     G = sys.argv[5]
+     dt = sys.argv[6]
+     return filename, N, D, S, G, dt
 
-                "    :param N: The number of particles.\n"
-                "    :param D: The number of dimensions.\n"
-                "    :param S: The number of time steps.\n"
-                "    :param G: Gravitational constant.\n"
-                "    :param dt: The time step.\n")
-        os._exit(1)
-    
 
 def input_int_check(N, D, S):
     """conditional check for integer values of N, D, and S.
@@ -65,15 +52,28 @@ def input_int_check(N, D, S):
     :param S: The number of time steps to be used for the simulation.
     :return: N/A
     """
-    for i in range(5):
-        i = 2
-        test = sys.argv[i]
-        if test.isdigit():
-            continue
-        else:
-            print('\nN, D, and S must be integers\n')
-            os._exit(1)
+    N.isdigit()
+    D.isdigit()
+    S.isdigit()
           
+
+def usage_error():
+    """Prints to screen how to use the program when the user raises an error.
+    
+    """
+    print('\n    The proper use of gravsim.py is as follows.')
+    print('\n        python gravsim.py outputfile N D S G dt\n')
+    print('    Simulate function from Computation book modified to take in\n'
+           "    user specified variables N, D, S, G, dt and output a user specified\n"
+           "    file name.\n"
+
+           "    :param N: The number of particles.\n"
+           "    :param D: The number of dimensions.\n"
+           "    :param S: The number of time steps.\n"
+           "    :param G: Gravitational constant.\n"
+           "    :param dt: The time step.\n")
+
+
 
 def simulate(N, D, S, G, dt):
     """Simulate function from Computation book modified to take in
@@ -98,7 +98,16 @@ def simulate(N, D, S, G, dt):
     return '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
 
 
-filename, N, D, S, G, dt = input_check(7)
-input_int_check(N, D, S)
-
-print(simulate(int(N), int(D), int(S), float(G), float(dt)))
+while True:
+	try:
+	    filename, N, D, S, G, dt = input_check(7)
+            input_int_check(N, D, S)
+            print(simulate(int(N), int(D), int(S), float(G), float(dt)))
+	    break
+        except (TypeError, NameError):
+            print('\n    TypeError:  You did not provide enough input values.\n')
+            usage_error()
+	    break
+        except ValueError:
+            usage_error()
+	    break
