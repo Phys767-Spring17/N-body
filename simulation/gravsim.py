@@ -23,7 +23,7 @@
 
 import book  # functions taken from book packaged as a module.
 import sys
-import os		# modules used to fancify user interface.
+import os  # modules used to fancify user interface.
 
 
 def input_check(n):
@@ -46,7 +46,7 @@ def input_check(n):
 
 def input_int_check(N, D, S):
     """conditional check for integer values of N, D, and S.
-    
+
     :param N: The number of particles in the simulation.
     :param D: The number of dimensions.
     :param S: The number of time steps to be used for the simulation.
@@ -55,7 +55,7 @@ def input_int_check(N, D, S):
     N.isdigit()
     D.isdigit()
     S.isdigit()
-          
+
 
 def usage_error():
     """Prints to screen how to use the program when the user raises an error.
@@ -72,7 +72,6 @@ def usage_error():
            "    :param S: The number of time steps.\n"
            "    :param G: Gravitational constant.\n"
            "    :param dt: The time step.\n")
-
 
 
 def simulate(N, D, S, G, dt):
