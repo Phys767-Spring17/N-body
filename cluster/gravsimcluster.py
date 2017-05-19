@@ -23,7 +23,7 @@ def simulate(N, M, D, S, G, dt):
             for i in range(M):
                 x1, v1 = book.timestep(x0[i], v0[i], G, m[i], dt)
                 x0[i], v0[i] = x1, v1
-                myfile.write(str(x0[i]) + "\n")
+                myfile.write(str(x0[i]).replace('[', '').replace(']', '') + "\n")
             myfile.flush()
     return '\nSimulation complete. Your data has been saved as clusterdata*.dat\n'
 
@@ -31,7 +31,7 @@ def simulate(N, M, D, S, G, dt):
 np.set_printoptions(threshold='nan')  # This is needed to print the entire x0 array to file.
 
 N = 1000
-M = 10
+M = 100
 D = 3
 S = 1000
 G = 1
