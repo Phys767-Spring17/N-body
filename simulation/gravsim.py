@@ -96,14 +96,14 @@ def simulate(N, D, S, G, dt):
     return '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
 
 
-while True:
+while True:  # While loop structure used for error handling.
     try:
         filename, N, D, S, G, dt = input_check(7)
         input_int_check(N, D, S)
         print(simulate(int(N), int(D), int(S), float(G), float(dt)))
         break
     except(TypeError, NameError):
-        print('\n    TypeError:  You did not provide enough input values.\n')
+        print('\n    InputError: You did not provide enough input values.\n')
         usage_error()
         break
     except ValueError:
