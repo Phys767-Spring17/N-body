@@ -25,6 +25,8 @@ to be using for the visualization section.
 Visualization was done using basic python plotting and animation as well as density plots found on
 stackoverflow.com. 
 
+Installation: Run setup.sh to export the book directory to PYTHONPATH. Then you will be able to
+run any of the versions of the codes from their respective directories.
 
 N-body  
 ├── book  
