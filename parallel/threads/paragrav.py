@@ -79,7 +79,7 @@ def simulate(P, N, D, S, G, dt):
             x1, v1 = book.timestep(x0, v0, G, m, dt, pool)
             x0, v0 = x1, v1
             for n in range(N):
-                myfile.write(str(x0[n, 0]) + "  " + str(x0[n,1]) + "  " + str(x0[n, 2]) + "\n")
+                myfile.write(str(x0[n]).replace('[', '').replace(']', '') + "\n")
             myfile.flush()
     return '\nSimulation complete. Your data has been saved as ' + sys.argv[1] + '*.dat\n'
 
