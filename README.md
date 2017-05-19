@@ -74,6 +74,6 @@ The N-body repo directory structure can be found below.
     ├── simulation  
     ├── tests  
     └── visualization  
-    &nbsp;&nbsp;&nbsp;├── density_plots  
-    &nbsp;&nbsp;&nbsp;├── output_examples  
-    &nbsp;&nbsp;&nbsp;└── plots  
+        ├── density_plots  
+        ├── output_examples  
+        └── plots  
