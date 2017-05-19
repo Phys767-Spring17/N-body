@@ -22,8 +22,7 @@
 
 
 import book  # functions taken from book packaged as a module.
-import sys
-import os  # modules used to fancify user interface.
+import sys  # modules used to fancify user interface.
 
 
 def input_check(n):
@@ -108,5 +107,6 @@ while True:
         usage_error()
         break
     except ValueError:
+        print('\n    ValueError: N, D, and S must be integers\n')
         usage_error()
         break
