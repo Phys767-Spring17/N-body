@@ -16,14 +16,14 @@ def input_check(n):
     :return: params for simulations.
     """
     if len(sys.argv) == n:
-     filename = sys.argv[1]
-     P = sys.argv[2]
-     N = sys.argv[3]
-     D = sys.argv[4]
-     S = sys.argv[5]
-     G = sys.argv[6]
-     dt = sys.argv[7]
-     return filename, P, N, D, S, G, dt
+        filename = sys.argv[1]
+        P = sys.argv[2]
+        N = sys.argv[3]
+        D = sys.argv[4]
+        S = sys.argv[5]
+        G = sys.argv[6]
+        dt = sys.argv[7]
+        return filename, P, N, D, S, G, dt
 
 
 def input_int_check(P, N, D, S):
