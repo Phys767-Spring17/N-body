@@ -36,11 +36,11 @@ of particle dimensions; the plotting programs are currently configured for three
 input and two dimensional output. Sample data can be found in the visualization directory.
 
 ## _**Installation and Execution**_ 
-Running setup.sh will export the book directory to PYTHONPATH. Then you will be able to run any of 
-version of the code from their respective directories. The first and second simulations will perform 
-calculations based on user input. When running the first and second version exceptions will be reasied 
-and instructions of use provided when the program is not used correctly. An example run could be 
-the following.
+Running setup.sh will export the book directory to PYTHONPATH. Doing so allows you will be able to 
+run any version of the code from their respective directories. The first and second simulations will 
+perform calculations based on user input. When running the first and second version exceptions will 
+be reasied and instructions of use provided when the program is not used correctly. An example run 
+could be the following.
 
     python gravsim.py out_file_name 100 3 100 1 1e-3
 
