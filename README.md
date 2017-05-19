@@ -5,7 +5,7 @@ numerical simulation were created.
 
 # _**Program Versions:**_
 
-## _**The first version**_, found in the simulation directory is named gravsim.py. The program defines and
+## _**The first version**_ ##, found in the simulation directory is named gravsim.py. The program defines and
 calls a function named simulate. The simulate function from the book was modified to save the 
 calculated particle positions to a file for each time step taken. The remaining functions taken
 from the book are stored in the book directory in a file named book.py. gravsim.py calls
