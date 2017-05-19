@@ -1,20 +1,26 @@
-import matplotlib		#These two lines are only needed
-matplotlib.use('Agg')		#if you are running this via ssh
-import sys, getopt
+import matplotlib  # These two lines are only needed
+matplotlib.use('Agg')  # if you are running this via ssh
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import os.path
 
+filename = sys.argv[1]
+
 fig, ax = plt.subplots()
 
-x, y, z = np.loadtxt('temp1000.data', delimiter=' ', unpack=True)
+data = np.loadtxt(filename)
 
-line, = ax.plot(x, y, 'r.', markersize=2, alpha='0.25')
+x = data[:,0]
+y = data[:,1]
+z = data[:,2]
+
 ax.patch.set_facecolor('black')
 ax.set_xlim(-100,600)
 ax.set_ylim(-100,600)
 
-#plt.show()
+ax.scatter(x,y, color='r', s=2, marker='.', alpha=0.25)
 
-plt.savefig('1000_100data2.png',dpi=1000)
+plt.savefig(filename + '_1000_100data2.png',dpi=300)
+#plt.show()
