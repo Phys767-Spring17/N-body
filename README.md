@@ -34,6 +34,6 @@ N-body
 ├── simulation  
 ├── tests  
 └── visualization  
-    ├── density_plots  
-    ├── output_examples  
-    └── plots  
+&nbsp;&nbsp;&nbsp;├── density_plots  
+&nbsp;&nbsp;&nbsp;├── output_examples  
+&nbsp;&nbsp;&nbsp;└── plots  
