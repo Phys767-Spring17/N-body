@@ -5,6 +5,7 @@ matplotlib.use('Agg')  # if you are running this via ssh
 import numpy as np
 import matplotlib.pyplot as plt
 import sphviewer as sph
+import sys
 
 
 def myplot(x, y, nb=32, xsize=500, ysize=500):   
@@ -42,17 +43,25 @@ def myplot(x, y, nb=32, xsize=500, ysize=500):
     print extent, x0, y0
     return img, extent
 
+
+filename = sys.argv[1]
+
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 
-x, y, z = np.loadtxt('proctemp1000.data', delimiter=' ', unpack=True)
+data = np.loadtxt(filename)
+
+x = data[:,0]
+y = data[:,1]
+z = data[:,2]
+
+nb_val=2048
 
 ax1.set_xlim(-100,600)
 ax1.set_ylim(-100,600)
+
 ax1.tick_params(axis='x', labelsize=6)
 ax1.tick_params(axis='y', labelsize=6)
-
-nb_val=2048
 
 densitymap, extent = myplot(x, y, nb=nb_val)
 
