@@ -50,18 +50,30 @@ The arguments following the out_file_name are particle number, dimensions, numbe
 gravitational constant, and time step. This example would generate 100 files with the name
 out_file_name*.data, where the * is a number from 1 to 100. Each file will contain the x, y, and z
 coordinates of the 100 particles. An animation can then be generated using animation.py, found in 
-the visualization/plots/ directory. Any individual file can also be plotted using scatter_plot.py,
-also found in the visualization/plots directory. And finally any individual plot can be plotted
-using density_plot.py, found in the visualization/density_plots directory.
+the visualization/plots/ directory. animation.py is run using the following format.
 
-N-body  
-├── book  
-├── cluster  
-├── parallel  
-│   └── threads  
-├── simulation  
-├── tests  
-└── visualization  
-&nbsp;&nbsp;&nbsp;├── density_plots  
-&nbsp;&nbsp;&nbsp;├── output_examples  
-&nbsp;&nbsp;&nbsp;└── plots  
+    python animation.py out_file_name 100
+
+Any individual file can also be plotted using scatter_plot.py, also found in the visualization/plots
+directory using the following format.
+
+    python scatter_plot.py out_file_name*.data
+
+And finally any individual plot can be plotted using density_plot.py, found in the 
+visualization/density_plots directory using the following format.
+
+    python density_plot.py out_file_name*.data
+
+The N-body repo directory structure can be found below.
+
+    N-body  
+    ├── book  
+    ├── cluster  
+    ├── parallel  
+    │   └── threads  
+    ├── simulation  
+    ├── tests  
+    └── visualization  
+    &nbsp;&nbsp;&nbsp;├── density_plots  
+    &nbsp;&nbsp;&nbsp;├── output_examples  
+    &nbsp;&nbsp;&nbsp;└── plots  
