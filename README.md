@@ -31,7 +31,7 @@ visualization section.
 
 ## _**Visualization**_
 Was done using basic python plotting and animation as well as density plots found on
-[stackoverflow.com]: http://stackoverflow.com/questions/2369492/generate-a-heatmap-in-matplotlib-using-a-scatter-data-set. While the simulations are able to perform calculations for an arbitrary number
+[stackoverflow.com](http://stackoverflow.com/questions/2369492/generate-a-heatmap-in-matplotlib-using-a-scatter-data-set). While the simulations are able to perform calculations for an arbitrary number
 of particle dimensions; the plotting programs are currently configured for three dimensional
 input and two dimensional output. Sample data can be found in the visualization directory.
 
