@@ -25,7 +25,7 @@ to be using for the visualization section.
 Visualization was done using basic python plotting and animation as well as density plots found on
 stackoverflow.com. While the simulations are able to perform calculations for an arbitrary number
 of particle dimensions; the plotting programs are currently configured for three dimensional
-input and two dimensional output.
+input and two dimensional output. Sample data can be found in the visualization directory.
 
 Installation: Run setup.sh to export the book directory to PYTHONPATH. Then you will be able to
 run any of the versions of the codes from their respective directories.
