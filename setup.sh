@@ -1,3 +1,6 @@
+#!/bin/bash
+
+
 export_book() {
     export PYTHONPATH=:`pwd`/book
     if [ $? -eq 0 ]; then
